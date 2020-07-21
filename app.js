@@ -32,11 +32,9 @@ app.get("/compose", function (req, res) {
 });
 
 app.post("/compose", function (req, res) {
-	console.log(req.body.newContent);
+	console.log(req.body.postTitle);
 	res.redirect("/compose");
 });
-
-
 
 
 app.listen(3000, function () {
