@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-	res.render("home", { homeStartingContent: homeStartingContent , posts: posts });
+	res.render("home", { homeStartingContent: homeStartingContent, posts: posts });
 });
 
 app.get("/about", function (req, res) {
@@ -35,6 +35,15 @@ app.get("/compose", function (req, res) {
 app.post("/compose", function (req, res) {
 	posts.push(req.body);
 	res.redirect("/");
+});
+
+app.get("/posts/:postTitle", function (req, res) {
+	//this function check whether postTitle is available in posts.title 
+	posts.filter(function (post) {
+		if(post.title === req.params.postTitle){
+			console.log("match found :)");
+		}
+	});
 });
 
 
