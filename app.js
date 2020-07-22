@@ -38,7 +38,7 @@ app.post("/compose", function (req, res) {
 });
 
 app.get("/posts/:postTitle", function (req, res) {
-	//this function check whether postTitle is available in posts.title 
+	//this function check whether postTitle is available in posts.title
 	posts.filter(function (post) {
 		if(post.title === req.params.postTitle){
 			console.log("match found :)");
